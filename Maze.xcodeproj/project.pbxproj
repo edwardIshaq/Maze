@@ -22,6 +22,7 @@
 		2B33CE7019A1B53E007393B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4F19A1B53E007393B8 /* UIKit.framework */; };
 		2B33CE7819A1B53E007393B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B33CE7619A1B53E007393B8 /* InfoPlist.strings */; };
 		2B33CE7A19A1B53E007393B8 /* MazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33CE7919A1B53E007393B8 /* MazeTests.m */; };
+		2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33CE8419A1B781007393B8 /* MAPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		2B33CE7519A1B53E007393B8 /* MazeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MazeTests-Info.plist"; sourceTree = "<group>"; };
 		2B33CE7719A1B53E007393B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B33CE7919A1B53E007393B8 /* MazeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeTests.m; sourceTree = "<group>"; };
+		2B33CE8319A1B781007393B8 /* MAPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAPoint.h; sourceTree = "<group>"; };
+		2B33CE8419A1B781007393B8 /* MAPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				2B33CE6019A1B53E007393B8 /* Main_iPad.storyboard */,
 				2B33CE6319A1B53E007393B8 /* ViewController.h */,
 				2B33CE6419A1B53E007393B8 /* ViewController.m */,
+				2B33CE8319A1B781007393B8 /* MAPoint.h */,
+				2B33CE8419A1B781007393B8 /* MAPoint.m */,
 				2B33CE6619A1B53E007393B8 /* Images.xcassets */,
 				2B33CE5219A1B53E007393B8 /* Supporting Files */,
 			);
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */,
 				2B33CE6519A1B53E007393B8 /* ViewController.m in Sources */,
 				2B33CE5C19A1B53E007393B8 /* AppDelegate.m in Sources */,
 				2B33CE5819A1B53E007393B8 /* main.m in Sources */,

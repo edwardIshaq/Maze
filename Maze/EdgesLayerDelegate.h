@@ -13,4 +13,5 @@
 
 @property (readonly) NSArray *lines;
 - (void)addLine:(MAEdge*)line;
+- (void)clearEdges;
 @end

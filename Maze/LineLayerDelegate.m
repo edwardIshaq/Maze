@@ -18,11 +18,10 @@
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
-{
-    
+{   
     CGContextMoveToPoint(ctx, self.startPoint.x, self.startPoint.y);
     CGContextAddLineToPoint(ctx, self.endPoint.x, self.endPoint.y);
-    CGContextSetLineWidth(ctx, 10 );
+    CGContextSetLineWidth(ctx, kEdgeWidth );
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), .5, .5, .5 , 1.0);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     

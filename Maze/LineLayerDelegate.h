@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Headers.h"
+
 
 @interface LineLayerDelegate : NSObject
 @property (assign) CGPoint startPoint, endPoint;

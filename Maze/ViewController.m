@@ -69,7 +69,7 @@
     DrawingView *drawingView = (DrawingView*)self.view;
     
     if (destPoint && ![destPoint isEqual:self.startPoint]) {
-        [drawingView drawLineFromPoint:self.startPoint.center toPoint:self.currPoint];
+        [drawingView drawLineFromPoint:self.startPoint.center toPoint:destPoint.center];
     }
     else
     {
@@ -128,6 +128,12 @@
     NSLog(@"x:%.2f y:%.2f dx:%.0f dy:%.0f", start.x, start.y, deltaX, deltaY);
     return lineView;
 }
+
+- (IBAction)clearGraph:(id)sender {
+    [self.points removeAllObjects];
+    [(DrawingView*)self.view clearGraph];
+}
+
 - (void)searchAlgorithem {
     /*
      - initiate Queue

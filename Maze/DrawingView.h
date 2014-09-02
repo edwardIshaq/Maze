@@ -14,4 +14,6 @@
 - (void)drawPoint:(CGPoint)point;
 - (void)drawLineFromPoint:(CGPoint)start toPoint:(CGPoint)end;
 - (void)drawTempLineFromPoint:(CGPoint)start toPoint:(CGPoint)end;
+
+- (void)clearGraph;
 @end

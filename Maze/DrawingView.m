@@ -65,6 +65,12 @@
 
 - (void)drawPoint:(CGPoint)point{}
 
+- (void)clearTempLine {
+    //Remove Temp Edge
+    self.tempLineDelegate.startPoint = CGPointZero;
+    self.tempLineDelegate.endPoint   = CGPointZero;
+}
+
 - (void)drawLineFromPoint:(CGPoint)start toPoint:(CGPoint)end {
     //Add new Edge
     MAEdge *edge = [[MAEdge alloc] init];
@@ -72,9 +78,7 @@
     edge.endPoint = end;
     [self.edgesDelegate addLine:edge];
     
-    //Remove Temp Edge
-    self.tempLineDelegate.startPoint = CGPointZero;
-    self.tempLineDelegate.endPoint   = CGPointZero;
+    [self clearTempLine];
 
     
     [self setNeedsDisplay];
@@ -100,5 +104,10 @@
     [self.edgesDelegate drawLayer:self.edgesLayer inContext:ctx];
 }
 
+- (void)clearGraph {
+    [self clearTempLine];
+    [self.edgesDelegate clearEdges];
+    [self setNeedsDisplay];
 
+}
 @end

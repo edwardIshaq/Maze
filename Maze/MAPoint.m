@@ -8,7 +8,7 @@
 
 #import "MAPoint.h"
 
-const CGFloat pointDim = 50.0;
+const CGFloat pointDim = 30.0;
 
 @implementation MAPoint
 

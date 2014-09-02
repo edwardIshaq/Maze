@@ -11,6 +11,8 @@
 
 #import "MAEdge.h"
 
+static const CGFloat kEdgeWidth = 5.0;
+
 typedef struct {
     CGPoint startPoint;
     CGPoint endPoint;

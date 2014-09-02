@@ -100,12 +100,15 @@
 		2B1F764C19B578E30079A089 /* layers */ = {
 			isa = PBXGroup;
 			children = (
+				2B1F765019B592AA0079A089 /* Headers.h */,
 				2B5F737319B5664200037726 /* DrawingView.h */,
 				2B5F737419B5664200037726 /* DrawingView.m */,
 				2B1F764D19B579060079A089 /* LineLayerDelegate.h */,
 				2B1F764E19B579060079A089 /* LineLayerDelegate.m */,
 				2B1F765119B592F00079A089 /* EdgesLayerDelegate.h */,
 				2B1F765219B592F00079A089 /* EdgesLayerDelegate.m */,
+				2B33CE8319A1B781007393B8 /* MAPoint.h */,
+				2B33CE8419A1B781007393B8 /* MAPoint.m */,
 				2B1F765419B596450079A089 /* MAEdge.h */,
 				2B1F765519B596450079A089 /* MAEdge.m */,
 			);
@@ -145,7 +148,6 @@
 		2B33CE5119A1B53E007393B8 /* Maze */ = {
 			isa = PBXGroup;
 			children = (
-				2B1F765019B592AA0079A089 /* Headers.h */,
 				2B33CE5A19A1B53E007393B8 /* AppDelegate.h */,
 				2B33CE5B19A1B53E007393B8 /* AppDelegate.m */,
 				2B33CE5D19A1B53E007393B8 /* Main_iPhone.storyboard */,
@@ -153,8 +155,6 @@
 				2B33CE6319A1B53E007393B8 /* ViewController.h */,
 				2B33CE6419A1B53E007393B8 /* ViewController.m */,
 				2B1F764C19B578E30079A089 /* layers */,
-				2B33CE8319A1B781007393B8 /* MAPoint.h */,
-				2B33CE8419A1B781007393B8 /* MAPoint.m */,
 				2B33CE6619A1B53E007393B8 /* Images.xcassets */,
 				2B33CE5219A1B53E007393B8 /* Supporting Files */,
 			);

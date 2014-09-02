@@ -73,7 +73,7 @@
 
     //Add new Edge
     MAEdge *edge = [[MAEdge alloc] initWithStart:start endPoint:end];
-    [self.edgesDelegate addLine:edge];
+    [self.edgesDelegate addEdge:edge];
     
     [self setNeedsDisplay];
     [self.edgesLayer setNeedsDisplay];
@@ -84,7 +84,7 @@
     [self.tempEdgeDelegate clearEdges];
     
     MAEdge *tmpEdge = [[MAEdge alloc] initWithStart:start endPoint:end];    
-    [self.tempEdgeDelegate addLine:tmpEdge];
+    [self.tempEdgeDelegate addEdge:tmpEdge];
     
     [self setNeedsDisplay];
     [self.tempLineLayer setNeedsDisplay];

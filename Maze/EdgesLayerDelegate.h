@@ -12,6 +12,6 @@
 @interface EdgesLayerDelegate : NSObject
 
 @property (readonly) NSArray *lines;
-- (void)addLine:(MAEdge*)line;
+- (void)addEdge:(MAEdge*)line;
 - (void)clearEdges;
 @end

@@ -21,7 +21,7 @@
     return self;
     
 }
-- (void)addLine:(MAEdge*)line {
+- (void)addEdge:(MAEdge*)line {
     [self.graphLines addObject:line];
 }
 

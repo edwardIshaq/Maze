@@ -18,8 +18,8 @@
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
-{    
-    //Else layer is tempLine layer
+{
+    
     CGContextMoveToPoint(ctx, self.startPoint.x, self.startPoint.y);
     CGContextAddLineToPoint(ctx, self.endPoint.x, self.endPoint.y);
     CGContextSetLineWidth(ctx, 10 );

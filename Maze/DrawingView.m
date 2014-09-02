@@ -8,38 +8,44 @@
 
 #import "DrawingView.h"
 #import "LineLayerDelegate.h"
+#import "EdgesLayerDelegate.h"
 
 @import QuartzCore;
 
 @interface DrawingView ()
 @property CALayer *pointsLayer;
 @property CALayer *tempLineLayer;
-@property CALayer *linesLayer;
+@property CALayer *edgesLayer;
 
 @property LineLayerDelegate *tempLineDelegate;
+@property EdgesLayerDelegate *edgesDelegate;
 
 @end
 
 @implementation DrawingView
 
 - (void)commonInit {
-    // Initialization code
+
+    //Points
     self.pointsLayer = [CALayer layer];
     self.pointsLayer.frame = self.bounds;
     //self.pointsLayer.delegate = self;
     
+    //Temp Line
     self.tempLineLayer = [CALayer layer];
     self.tempLineLayer.frame = self.bounds;
     self.tempLineDelegate = [LineLayerDelegate new];
     self.tempLineLayer.delegate = self.tempLineDelegate;
     
-    self.linesLayer = [CALayer layer];
-    self.linesLayer.frame = self.bounds;
-    //self.linesLayer.delegate = self;
+    //Graph Edges
+    self.edgesLayer = [CALayer layer];
+    self.edgesLayer.frame = self.bounds;
+    self.edgesDelegate = [EdgesLayerDelegate new];
+    self.edgesLayer.delegate = self.edgesDelegate;
     
     [self.layer addSublayer:self.pointsLayer];
     [self.layer addSublayer:self.tempLineLayer];
-    [self.layer addSublayer:self.linesLayer];
+    [self.layer addSublayer:self.edgesLayer];
 
 }
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -58,7 +64,22 @@
 }
 
 - (void)drawPoint:(CGPoint)point{}
+
 - (void)drawLineFromPoint:(CGPoint)start toPoint:(CGPoint)end {
+    //Add new Edge
+    MAEdge *edge = [[MAEdge alloc] init];
+    edge.startPoint = start;
+    edge.endPoint = end;
+    [self.edgesDelegate addLine:edge];
+    
+    //Remove Temp Edge
+    self.tempLineDelegate.startPoint = CGPointZero;
+    self.tempLineDelegate.endPoint   = CGPointZero;
+
+    
+    [self setNeedsDisplay];
+    [self.edgesLayer setNeedsDisplay];
+    [self.tempLineLayer setNeedsDisplay];
     
 }
 - (void)drawTempLineFromPoint:(CGPoint)start toPoint:(CGPoint)end {
@@ -76,7 +97,7 @@
 {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     [self.tempLineDelegate drawLayer:self.tempLineLayer inContext:ctx];
-    
+    [self.edgesDelegate drawLayer:self.edgesLayer inContext:ctx];
 }
 
 

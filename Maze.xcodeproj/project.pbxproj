@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B1F764F19B579060079A089 /* LineLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F764E19B579060079A089 /* LineLayerDelegate.m */; };
+		2B1F765319B592F00079A089 /* EdgesLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F765219B592F00079A089 /* EdgesLayerDelegate.m */; };
+		2B1F765619B596450079A089 /* MAEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F765519B596450079A089 /* MAEdge.m */; };
 		2B33CE4C19A1B53E007393B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4B19A1B53E007393B8 /* Foundation.framework */; };
 		2B33CE4E19A1B53E007393B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4D19A1B53E007393B8 /* CoreGraphics.framework */; };
 		2B33CE5019A1B53E007393B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4F19A1B53E007393B8 /* UIKit.framework */; };
@@ -40,6 +42,11 @@
 /* Begin PBXFileReference section */
 		2B1F764D19B579060079A089 /* LineLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayerDelegate.h; sourceTree = "<group>"; };
 		2B1F764E19B579060079A089 /* LineLayerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayerDelegate.m; sourceTree = "<group>"; };
+		2B1F765019B592AA0079A089 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
+		2B1F765119B592F00079A089 /* EdgesLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgesLayerDelegate.h; sourceTree = "<group>"; };
+		2B1F765219B592F00079A089 /* EdgesLayerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgesLayerDelegate.m; sourceTree = "<group>"; };
+		2B1F765419B596450079A089 /* MAEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAEdge.h; sourceTree = "<group>"; };
+		2B1F765519B596450079A089 /* MAEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAEdge.m; sourceTree = "<group>"; };
 		2B33CE4819A1B53E007393B8 /* Maze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B33CE4B19A1B53E007393B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2B33CE4D19A1B53E007393B8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +104,10 @@
 				2B5F737419B5664200037726 /* DrawingView.m */,
 				2B1F764D19B579060079A089 /* LineLayerDelegate.h */,
 				2B1F764E19B579060079A089 /* LineLayerDelegate.m */,
+				2B1F765119B592F00079A089 /* EdgesLayerDelegate.h */,
+				2B1F765219B592F00079A089 /* EdgesLayerDelegate.m */,
+				2B1F765419B596450079A089 /* MAEdge.h */,
+				2B1F765519B596450079A089 /* MAEdge.m */,
 			);
 			name = layers;
 			sourceTree = "<group>";
@@ -134,6 +145,7 @@
 		2B33CE5119A1B53E007393B8 /* Maze */ = {
 			isa = PBXGroup;
 			children = (
+				2B1F765019B592AA0079A089 /* Headers.h */,
 				2B33CE5A19A1B53E007393B8 /* AppDelegate.h */,
 				2B33CE5B19A1B53E007393B8 /* AppDelegate.m */,
 				2B33CE5D19A1B53E007393B8 /* Main_iPhone.storyboard */,
@@ -276,11 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1F765319B592F00079A089 /* EdgesLayerDelegate.m in Sources */,
 				2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */,
 				2B33CE6519A1B53E007393B8 /* ViewController.m in Sources */,
 				2B1F764F19B579060079A089 /* LineLayerDelegate.m in Sources */,
 				2B33CE5C19A1B53E007393B8 /* AppDelegate.m in Sources */,
 				2B5F737519B5664200037726 /* DrawingView.m in Sources */,
+				2B1F765619B596450079A089 /* MAEdge.m in Sources */,
 				2B33CE5819A1B53E007393B8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

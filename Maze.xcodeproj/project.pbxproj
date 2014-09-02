@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1F764F19B579060079A089 /* LineLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F764E19B579060079A089 /* LineLayerDelegate.m */; };
 		2B33CE4C19A1B53E007393B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4B19A1B53E007393B8 /* Foundation.framework */; };
 		2B33CE4E19A1B53E007393B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4D19A1B53E007393B8 /* CoreGraphics.framework */; };
 		2B33CE5019A1B53E007393B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4F19A1B53E007393B8 /* UIKit.framework */; };
@@ -23,6 +24,7 @@
 		2B33CE7819A1B53E007393B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B33CE7619A1B53E007393B8 /* InfoPlist.strings */; };
 		2B33CE7A19A1B53E007393B8 /* MazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33CE7919A1B53E007393B8 /* MazeTests.m */; };
 		2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33CE8419A1B781007393B8 /* MAPoint.m */; };
+		2B5F737519B5664200037726 /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F737419B5664200037726 /* DrawingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B1F764D19B579060079A089 /* LineLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayerDelegate.h; sourceTree = "<group>"; };
+		2B1F764E19B579060079A089 /* LineLayerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayerDelegate.m; sourceTree = "<group>"; };
 		2B33CE4819A1B53E007393B8 /* Maze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B33CE4B19A1B53E007393B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2B33CE4D19A1B53E007393B8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,6 +62,8 @@
 		2B33CE7919A1B53E007393B8 /* MazeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeTests.m; sourceTree = "<group>"; };
 		2B33CE8319A1B781007393B8 /* MAPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAPoint.h; sourceTree = "<group>"; };
 		2B33CE8419A1B781007393B8 /* MAPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAPoint.m; sourceTree = "<group>"; };
+		2B5F737319B5664200037726 /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
+		2B5F737419B5664200037726 /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1F764C19B578E30079A089 /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				2B5F737319B5664200037726 /* DrawingView.h */,
+				2B5F737419B5664200037726 /* DrawingView.m */,
+				2B1F764D19B579060079A089 /* LineLayerDelegate.h */,
+				2B1F764E19B579060079A089 /* LineLayerDelegate.m */,
+			);
+			name = layers;
+			sourceTree = "<group>";
+		};
 		2B33CE3F19A1B53E007393B8 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +140,7 @@
 				2B33CE6019A1B53E007393B8 /* Main_iPad.storyboard */,
 				2B33CE6319A1B53E007393B8 /* ViewController.h */,
 				2B33CE6419A1B53E007393B8 /* ViewController.m */,
+				2B1F764C19B578E30079A089 /* layers */,
 				2B33CE8319A1B781007393B8 /* MAPoint.h */,
 				2B33CE8419A1B781007393B8 /* MAPoint.m */,
 				2B33CE6619A1B53E007393B8 /* Images.xcassets */,
@@ -260,7 +278,9 @@
 			files = (
 				2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */,
 				2B33CE6519A1B53E007393B8 /* ViewController.m in Sources */,
+				2B1F764F19B579060079A089 /* LineLayerDelegate.m in Sources */,
 				2B33CE5C19A1B53E007393B8 /* AppDelegate.m in Sources */,
+				2B5F737519B5664200037726 /* DrawingView.m in Sources */,
 				2B33CE5819A1B53E007393B8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +496,7 @@
 				2B33CE7F19A1B53E007393B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B33CE8019A1B53E007393B8 /* Build configuration list for PBXNativeTarget "MazeTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +505,7 @@
 				2B33CE8219A1B53E007393B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

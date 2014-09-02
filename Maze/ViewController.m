@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "MAPoint.h"
+#import "DrawingView.h"
 
 @interface ViewController ()
 @property NSMutableSet *points;
 @property MAPoint *startPoint;
+@property (assign) CGPoint currPoint;
 @property UIView *currLine;
 @end
 
@@ -42,21 +44,51 @@
 
 }
 
+
+
 - (IBAction)pointTapHandler:(UITapGestureRecognizer*)tap {
     CGPoint center = [tap locationInView:self.view];
-    
+    [self addPointAt:center];
+}
+
+- (void)addPointAt:(CGPoint)center {
     MAPoint *point = [[MAPoint alloc] initPointWithCGPoint:center];
     [self.view addSubview:point.view];
     [self.points addObject:point];
+
 }
-
-
 /*
  velocity could be used as weight of edge
  
  */
 - (IBAction)dragLineHandler:(UIPanGestureRecognizer*)tap {
     CGPoint endPoint = [tap locationInView:self.view];
+    self.currPoint = endPoint;
+    
+    DrawingView *drawingView = (DrawingView*)self.view;
+    
+    [drawingView drawTempLineFromPoint:self.startPoint.center toPoint:self.currPoint];
+    return;
+    
+    drawingView.startPoint = self.startPoint.center;
+    drawingView.endPoint = self.currPoint;
+    [self.view setNeedsDisplay];
+    return;
+    
+//    [self addPointAt:endPoint];
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextMoveToPoint(ctx, self.startPoint.center.x, self.startPoint.center.y);
+    CGContextAddLineToPoint(ctx, endPoint.x, endPoint.y);
+    CGContextSetLineWidth(ctx, 10 );
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), .5, .5, .5 , 1.0);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    UIGraphicsEndImageContext();
+
+    return;
+
     //Check against subviews(Points) ?
     //NSLog(@"dragLineAction: %.2f %.2f ", endPoint.x, endPoint.y);
     UIView *lineView = [self lineFromPoint:self.startPoint.view.center toPoint:endPoint];
@@ -86,49 +118,16 @@
     return NO;
 }
 
-/*
- typedef NS_ENUM(NSInteger, UIGestureRecognizerState) {
- UIGestureRecognizerStatePossible,   // the recognizer has not yet recognized its gesture, but may be evaluating touch events. this is the default state
- 
- UIGestureRecognizerStateBegan,      // the recognizer has received touches recognized as the gesture. the action method will be called at the next turn of the run loop
- UIGestureRecognizerStateChanged,    // the recognizer has received touches recognized as a change to the gesture. the action method will be called at the next turn of the run loop
- UIGestureRecognizerStateEnded,      // the recognizer has received touches recognized as the end of the gesture. the action method will be called at the next turn of the run loop and the recognizer will be reset to UIGestureRecognizerStatePossible
- UIGestureRecognizerStateCancelled,  // the recognizer has received touches resulting in the cancellation of the gesture. the action method will be called at the next turn of the run loop. the recognizer will be reset to UIGestureRecognizerStatePossible
- 
- UIGestureRecognizerStateFailed,     // the recognizer has received a touch sequence that can not be recognized as the gesture. the action method will not be called and the recognizer will be reset to UIGestureRecognizerStatePossible
- 
- // Discrete Gestures – gesture recognizers that recognize a discrete event but do not report changes (for example, a tap) do not transition through the Began and Changed states and can not fail or be cancelled
- UIGestureRecognizerStateRecognized = UIGestureRecognizerStateEnded // the recognizer has received touches recognized as the gesture. the action method will be called at the next turn of the run loop and the recognizer will be reset to UIGestureRecognizerStatePossible
- };
-*/
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    CGPoint touchLocation = [touch locationInView:self.view];
-    NSLog(@"(%.0f %.0f) state: %d", touchLocation.x, touchLocation.y, gestureRecognizer.state);
-
-    
-    switch (gestureRecognizer.state) {
-        case UIGestureRecognizerStateBegan:
-            NSLog(@"%@ Began" , gestureRecognizer);
-            break;
-            
-        case UIGestureRecognizerStateChanged:
-            NSLog(@"%@ Changed" , gestureRecognizer);
-            break;
-            
-        case UIGestureRecognizerStateEnded:
-            NSLog(@"%@ Ended" , gestureRecognizer);
-            break;
-            
-            
-            
-        default:
-            break;
-    }
-    return YES;
-}
 
 - (UIView*)lineFromPoint:(CGPoint)start toPoint:(CGPoint)finish {
+
+    
+    NSLog(@"x:%.2f y:%.2f dx:%.0f dy:%.0f", start.x, start.y, finish.x, finish.y);
+    UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(start.x, start.y, finish.x ,finish.y)];
+    lineView2.backgroundColor = [UIColor redColor];
+    
+    return lineView2;
+
     
     CGFloat length = sqrtf(powf(ABS(start.x-finish.x), 2) + powf(ABS(start.y - finish.y),2));
     
@@ -136,18 +135,13 @@
     CGFloat deltaX = finish.x - start.x;
     CGFloat angle = atan2f(deltaY, deltaX);
     
-    NSLog(@"length:%.2f angle:%.2f | s: (%.0f,%.0f) e: (%.0f,%.0f)", length, angle, start.x, start.y, finish.x, finish.y);
-    UIView *lineView = [[UIView alloc] init];
+//    NSLog(@"length:%.2f angle:%.2f | s: (%.0f,%.0f) e: (%.0f,%.0f)", length, angle, start.x, start.y, finish.x, finish.y);
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(start.x, start.y, length, 10.0)];
     lineView.backgroundColor = [UIColor blackColor];
-    CGRect lineFrame = CGRectMake(start.x, start.y, length, 10.0);
-    lineView.frame = lineFrame;
-    
-    CGAffineTransform transform = CGAffineTransformMakeRotation(angle);
-    lineView.transform = transform;
-
+    lineView.layer.anchorPoint = CGPointMake(0, 0);
+    lineView.transform = CGAffineTransformMakeRotation(angle);
 //    lineView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, angle);
-
-    
+    NSLog(@"x:%.2f y:%.2f dx:%.0f dy:%.0f", start.x, start.y, deltaX, deltaY);
     return lineView;
 }
 - (void)searchAlgorithem {

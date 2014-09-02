@@ -34,9 +34,6 @@
     UITapGestureRecognizer *pointTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pointTapHandler:)];
     [self.view addGestureRecognizer:pointTap];
     
-//    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressHandler:)];
-//    [self.view addGestureRecognizer:longPress];
-    
     //Add a pan Gesture to the point
     UIPanGestureRecognizer *dragLine = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragLineHandler:)];
     dragLine.delegate = self;
@@ -68,10 +65,11 @@
     MAPoint *destPoint = [self pointContainingTouchPoint:gesturePoint];
     DrawingView *drawingView = (DrawingView*)self.view;
     
+    //Final line destination
     if (destPoint && ![destPoint isEqual:self.startPoint]) {
         [drawingView drawLineFromPoint:self.startPoint.center toPoint:destPoint.center];
     }
-    else
+    else //Temp line 
     {
         [drawingView drawTempLineFromPoint:self.startPoint.center toPoint:self.currPoint];
     }

@@ -11,4 +11,5 @@
 @interface MAEdge : NSObject
 @property (assign) CGPoint startPoint;
 @property (assign) CGPoint endPoint;
+- (id)initWithStart:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
 @end

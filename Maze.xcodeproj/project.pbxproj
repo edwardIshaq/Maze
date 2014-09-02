@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B1F764F19B579060079A089 /* LineLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F764E19B579060079A089 /* LineLayerDelegate.m */; };
 		2B1F765319B592F00079A089 /* EdgesLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F765219B592F00079A089 /* EdgesLayerDelegate.m */; };
 		2B1F765619B596450079A089 /* MAEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F765519B596450079A089 /* MAEdge.m */; };
 		2B33CE4C19A1B53E007393B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B33CE4B19A1B53E007393B8 /* Foundation.framework */; };
@@ -40,8 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B1F764D19B579060079A089 /* LineLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayerDelegate.h; sourceTree = "<group>"; };
-		2B1F764E19B579060079A089 /* LineLayerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayerDelegate.m; sourceTree = "<group>"; };
 		2B1F765019B592AA0079A089 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
 		2B1F765119B592F00079A089 /* EdgesLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgesLayerDelegate.h; sourceTree = "<group>"; };
 		2B1F765219B592F00079A089 /* EdgesLayerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgesLayerDelegate.m; sourceTree = "<group>"; };
@@ -103,8 +100,6 @@
 				2B1F765019B592AA0079A089 /* Headers.h */,
 				2B5F737319B5664200037726 /* DrawingView.h */,
 				2B5F737419B5664200037726 /* DrawingView.m */,
-				2B1F764D19B579060079A089 /* LineLayerDelegate.h */,
-				2B1F764E19B579060079A089 /* LineLayerDelegate.m */,
 				2B1F765119B592F00079A089 /* EdgesLayerDelegate.h */,
 				2B1F765219B592F00079A089 /* EdgesLayerDelegate.m */,
 				2B33CE8319A1B781007393B8 /* MAPoint.h */,
@@ -291,7 +286,6 @@
 				2B1F765319B592F00079A089 /* EdgesLayerDelegate.m in Sources */,
 				2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */,
 				2B33CE6519A1B53E007393B8 /* ViewController.m in Sources */,
-				2B1F764F19B579060079A089 /* LineLayerDelegate.m in Sources */,
 				2B33CE5C19A1B53E007393B8 /* AppDelegate.m in Sources */,
 				2B5F737519B5664200037726 /* DrawingView.m in Sources */,
 				2B1F765619B596450079A089 /* MAEdge.m in Sources */,

@@ -7,7 +7,6 @@
 //
 
 #import "DrawingView.h"
-#import "LineLayerDelegate.h"
 #import "EdgesLayerDelegate.h"
 
 @import QuartzCore;
@@ -17,8 +16,7 @@
 @property CALayer *tempLineLayer;
 @property CALayer *edgesLayer;
 
-@property LineLayerDelegate *tempLineDelegate;
-@property EdgesLayerDelegate *edgesDelegate;
+@property EdgesLayerDelegate *edgesDelegate, *tempEdgeDelegate;
 
 @end
 
@@ -34,8 +32,8 @@
     //Temp Line
     self.tempLineLayer = [CALayer layer];
     self.tempLineLayer.frame = self.bounds;
-    self.tempLineDelegate = [LineLayerDelegate new];
-    self.tempLineLayer.delegate = self.tempLineDelegate;
+    self.tempEdgeDelegate = [EdgesLayerDelegate new];
+    self.tempLineLayer.delegate = self.tempEdgeDelegate;
     
     //Graph Edges
     self.edgesLayer = [CALayer layer];
@@ -67,19 +65,15 @@
 
 - (void)clearTempLine {
     //Remove Temp Edge
-    self.tempLineDelegate.startPoint = CGPointZero;
-    self.tempLineDelegate.endPoint   = CGPointZero;
 }
 
 - (void)drawLineFromPoint:(CGPoint)start toPoint:(CGPoint)end {
-    //Add new Edge
-    MAEdge *edge = [[MAEdge alloc] init];
-    edge.startPoint = start;
-    edge.endPoint = end;
-    [self.edgesDelegate addLine:edge];
-    
-    [self clearTempLine];
+    //remove temp edge
+    [self.tempEdgeDelegate clearEdges];
 
+    //Add new Edge
+    MAEdge *edge = [[MAEdge alloc] initWithStart:start endPoint:end];
+    [self.edgesDelegate addLine:edge];
     
     [self setNeedsDisplay];
     [self.edgesLayer setNeedsDisplay];
@@ -87,9 +81,10 @@
     
 }
 - (void)drawTempLineFromPoint:(CGPoint)start toPoint:(CGPoint)end {
+    [self.tempEdgeDelegate clearEdges];
     
-    self.tempLineDelegate.startPoint = start;
-    self.tempLineDelegate.endPoint   = end;
+    MAEdge *tmpEdge = [[MAEdge alloc] initWithStart:start endPoint:end];    
+    [self.tempEdgeDelegate addLine:tmpEdge];
     
     [self setNeedsDisplay];
     [self.tempLineLayer setNeedsDisplay];
@@ -100,12 +95,12 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [self.tempLineDelegate drawLayer:self.tempLineLayer inContext:ctx];
+    [self.tempEdgeDelegate drawLayer:self.tempLineLayer inContext:ctx];
     [self.edgesDelegate drawLayer:self.edgesLayer inContext:ctx];
 }
 
 - (void)clearGraph {
-    [self clearTempLine];
+    [self.tempEdgeDelegate clearEdges];
     [self.edgesDelegate clearEdges];
     [self setNeedsDisplay];
 

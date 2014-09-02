@@ -93,7 +93,6 @@
         return YES;
     }
     
-
     //Check if this point is contained in any of the points
     //if yes add it as a starting point and return yes
     CGPoint gesturePoint = [gestureRecognizer locationInView:self.view];
@@ -102,32 +101,6 @@
     return (self.startPoint? YES : NO);
 }
 
-
-- (UIView*)lineFromPoint:(CGPoint)start toPoint:(CGPoint)finish {
-
-    
-    NSLog(@"x:%.2f y:%.2f dx:%.0f dy:%.0f", start.x, start.y, finish.x, finish.y);
-    UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(start.x, start.y, finish.x ,finish.y)];
-    lineView2.backgroundColor = [UIColor redColor];
-    
-    return lineView2;
-
-    
-    CGFloat length = sqrtf(powf(ABS(start.x-finish.x), 2) + powf(ABS(start.y - finish.y),2));
-    
-    CGFloat deltaY = finish.y - start.y;
-    CGFloat deltaX = finish.x - start.x;
-    CGFloat angle = atan2f(deltaY, deltaX);
-    
-//    NSLog(@"length:%.2f angle:%.2f | s: (%.0f,%.0f) e: (%.0f,%.0f)", length, angle, start.x, start.y, finish.x, finish.y);
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(start.x, start.y, length, 10.0)];
-    lineView.backgroundColor = [UIColor blackColor];
-    lineView.layer.anchorPoint = CGPointMake(0, 0);
-    lineView.transform = CGAffineTransformMakeRotation(angle);
-//    lineView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, angle);
-    NSLog(@"x:%.2f y:%.2f dx:%.0f dy:%.0f", start.x, start.y, deltaX, deltaY);
-    return lineView;
-}
 
 - (IBAction)clearGraph:(id)sender {
     [self.points removeAllObjects];

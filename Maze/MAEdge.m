@@ -9,5 +9,11 @@
 #import "MAEdge.h"
 
 @implementation MAEdge
-
+- (id)initWithStart:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
+    self = [super init];
+    self.startPoint = startPoint;
+    self.endPoint   = endPoint;
+    
+    return self;
+}
 @end

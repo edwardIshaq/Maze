@@ -62,60 +62,44 @@
  
  */
 - (IBAction)dragLineHandler:(UIPanGestureRecognizer*)tap {
-    CGPoint endPoint = [tap locationInView:self.view];
-    self.currPoint = endPoint;
+    CGPoint gesturePoint = [tap locationInView:self.view];
+    self.currPoint = gesturePoint;
     
+    MAPoint *destPoint = [self pointContainingTouchPoint:gesturePoint];
     DrawingView *drawingView = (DrawingView*)self.view;
     
-    [drawingView drawTempLineFromPoint:self.startPoint.center toPoint:self.currPoint];
-    return;
-    
-    drawingView.startPoint = self.startPoint.center;
-    drawingView.endPoint = self.currPoint;
-    [self.view setNeedsDisplay];
-    return;
-    
-//    [self addPointAt:endPoint];
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextMoveToPoint(ctx, self.startPoint.center.x, self.startPoint.center.y);
-    CGContextAddLineToPoint(ctx, endPoint.x, endPoint.y);
-    CGContextSetLineWidth(ctx, 10 );
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), .5, .5, .5 , 1.0);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    UIGraphicsEndImageContext();
-
-    return;
-
-    //Check against subviews(Points) ?
-    //NSLog(@"dragLineAction: %.2f %.2f ", endPoint.x, endPoint.y);
-    UIView *lineView = [self lineFromPoint:self.startPoint.view.center toPoint:endPoint];
-    if (lineView) {
-        [self.currLine removeFromSuperview];
-        self.currLine = lineView;
-        [self.view addSubview:self.currLine];
+    if (destPoint && ![destPoint isEqual:self.startPoint]) {
+        [drawingView drawLineFromPoint:self.startPoint.center toPoint:self.currPoint];
+    }
+    else
+    {
+        [drawingView drawTempLineFromPoint:self.startPoint.center toPoint:self.currPoint];
     }
 }
 
 #pragma mark - UIGestureRecognizerDelegate impl.
-
+- (MAPoint*)pointContainingTouchPoint:(CGPoint)touchPoint {
+    MAPoint *containingPoint = nil;
+    for (MAPoint *point in self.points) {
+        if (CGRectContainsPoint(point.view.frame, touchPoint)) {
+            containingPoint = point;
+            break;
+        }
+    }
+    return containingPoint;
+}
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if (![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         return YES;
     }
+    
+
     //Check if this point is contained in any of the points
     //if yes add it as a starting point and return yes
     CGPoint gesturePoint = [gestureRecognizer locationInView:self.view];
-    for (MAPoint *point in self.points) {
-        if (CGRectContainsPoint(point.view.frame, gesturePoint)) {
-            self.startPoint = point;
-            NSLog(@"Starting Point: %@", point);
-            return YES;
-        }
-    }
-    return NO;
+    
+    self.startPoint = [self pointContainingTouchPoint:gesturePoint];
+    return (self.startPoint? YES : NO);
 }
 
 

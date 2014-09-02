@@ -12,5 +12,6 @@
 @property (assign) CGPoint startPoint, endPoint;
 
 - (void)drawPoint:(CGPoint)point;
+- (void)drawLineFromPoint:(CGPoint)start toPoint:(CGPoint)end;
 - (void)drawTempLineFromPoint:(CGPoint)start toPoint:(CGPoint)end;
 @end

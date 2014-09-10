@@ -7,8 +7,8 @@
 //
 
 #import "MAPoint.h"
+#import "Headers.h"
 
-const CGFloat pointDim = 30.0;
 
 @implementation MAPoint
 
@@ -33,7 +33,7 @@ const CGFloat pointDim = 30.0;
 }
 
 - (UIView*)view {
-    UIView *pointView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, pointDim, pointDim)];
+    UIView *pointView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kPointDim, kPointDim)];
     pointView.layer.cornerRadius = pointView.frame.size.width/2;
     pointView.center = self.center;
     [pointView setBackgroundColor:self.color];

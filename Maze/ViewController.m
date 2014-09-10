@@ -41,8 +41,6 @@
 
 }
 
-
-
 - (IBAction)pointTapHandler:(UITapGestureRecognizer*)tap {
     CGPoint center = [tap locationInView:self.view];
     [self addPointAt:center];

@@ -22,15 +22,6 @@
     return self;
 }
 
-+ (UIColor*)randomColor {
-    CGFloat r=0,g=0,b=0;
-    r = (arc4random()%255 / 255.0);
-    g = (arc4random()%255 / 255.0);
-    b = (arc4random()%255 / 255.0);
-    
-    UIColor *randColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
-    return randColor;
-}
 
 - (UIView*)view {
     UIView *pointView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kPointDim, kPointDim)];
@@ -51,5 +42,21 @@
     
 
     return pointView;
+}
+
+#pragma mark - Helpers
+
++ (UIColor*)randomColor {
+    CGFloat r=0,g=0,b=0;
+    r = (arc4random()%255 / 255.0);
+    g = (arc4random()%255 / 255.0);
+    b = (arc4random()%255 / 255.0);
+    
+    UIColor *randColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
+    return randColor;
+}
+- (CGFloat)distanceFromPosition:(CGPoint)point {
+    CGFloat distance = hypotf(self.center.x - point.x, self.center.y - point.y);;
+    return distance;
 }
 @end

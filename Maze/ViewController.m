@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Edward Ashak. All rights reserved.
 //
 
+#import "Headers.h"
 #import "ViewController.h"
 #import "MAPoint.h"
 #import "DrawingView.h"
@@ -47,10 +48,23 @@
 }
 
 - (void)addPointAt:(CGPoint)center {
+    if (![self isPointPositionAllowed:center]) {
+        return;
+    }
     MAPoint *point = [[MAPoint alloc] initPointWithCGPoint:center];
     [self.view addSubview:point.view];
     [self.points addObject:point];
+}
 
+- (BOOL)isPointPositionAllowed:(CGPoint)center {
+    BOOL isValid = YES;
+    for (MAPoint *point in self.points) {
+        CGFloat distance = [point distanceFromPosition:center];
+        if (distance < kMinDistance) {
+            return NO;
+        }
+    }
+    return isValid;
 }
 /*
  velocity could be used as weight of edge

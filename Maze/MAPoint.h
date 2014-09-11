@@ -18,6 +18,6 @@
 
 //@property
 - (instancetype)initPointWithCGPoint:(CGPoint)cgPoint;
-
 + (UIColor*)randomColor;
+- (CGFloat)distanceFromPosition:(CGPoint)point;
 @end

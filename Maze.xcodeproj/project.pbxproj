@@ -26,6 +26,7 @@
 		2B33CE7A19A1B53E007393B8 /* MazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33CE7919A1B53E007393B8 /* MazeTests.m */; };
 		2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33CE8419A1B781007393B8 /* MAPoint.m */; };
 		2B5F737519B5664200037726 /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F737419B5664200037726 /* DrawingView.m */; };
+		2BC77C8319C15F5600F7242A /* MAGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC77C8219C15F5600F7242A /* MAGraph.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		2B33CE8419A1B781007393B8 /* MAPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAPoint.m; sourceTree = "<group>"; };
 		2B5F737319B5664200037726 /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
 		2B5F737419B5664200037726 /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
+		2BC77C8119C15F5600F7242A /* MAGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGraph.h; sourceTree = "<group>"; };
+		2BC77C8219C15F5600F7242A /* MAGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGraph.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,7 @@
 				2B33CE6019A1B53E007393B8 /* Main_iPad.storyboard */,
 				2B33CE6319A1B53E007393B8 /* ViewController.h */,
 				2B33CE6419A1B53E007393B8 /* ViewController.m */,
+				2BC77C8019C15F3100F7242A /* Model */,
 				2B1F764C19B578E30079A089 /* layers */,
 				2B33CE6619A1B53E007393B8 /* Images.xcassets */,
 				2B33CE5219A1B53E007393B8 /* Supporting Files */,
@@ -183,6 +187,15 @@
 				2B33CE7619A1B53E007393B8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2BC77C8019C15F3100F7242A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BC77C8119C15F5600F7242A /* MAGraph.h */,
+				2BC77C8219C15F5600F7242A /* MAGraph.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +300,7 @@
 				2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */,
 				2B33CE6519A1B53E007393B8 /* ViewController.m in Sources */,
 				2B33CE5C19A1B53E007393B8 /* AppDelegate.m in Sources */,
+				2BC77C8319C15F5600F7242A /* MAGraph.m in Sources */,
 				2B5F737519B5664200037726 /* DrawingView.m in Sources */,
 				2B1F765619B596450079A089 /* MAEdge.m in Sources */,
 				2B33CE5819A1B53E007393B8 /* main.m in Sources */,

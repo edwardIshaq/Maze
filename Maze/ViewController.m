@@ -71,6 +71,9 @@
  
  */
 - (IBAction)dragLineHandler:(UIPanGestureRecognizer*)tap {
+    if (!self.startPoint) {
+        return;
+    }
     CGPoint gesturePoint = [tap locationInView:self.view];
     self.currPoint = gesturePoint;
     
@@ -80,6 +83,7 @@
     //Final line destination
     if (destPoint && ![destPoint isEqual:self.startPoint]) {
         [drawingView drawLineFromPoint:self.startPoint.center toPoint:destPoint.center];
+        self.startPoint = nil;
     }
     else //Temp line 
     {

@@ -36,7 +36,19 @@
     UIView *pointView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kPointDim, kPointDim)];
     pointView.layer.cornerRadius = pointView.frame.size.width/2;
     pointView.center = self.center;
-    [pointView setBackgroundColor:self.color];
+    [pointView setBackgroundColor:[UIColor whiteColor]];
+    pointView.layer.cornerRadius = kPointDim/2;
+    pointView.layer.borderColor = self.color.CGColor;
+    pointView.layer.borderWidth = 1.;
+
+    CALayer *cirlcleLayer = [CALayer layer];
+    cirlcleLayer.backgroundColor = self.color.CGColor;
+    cirlcleLayer.bounds = CGRectMake(0, 0, kPointDim/2, kPointDim/2);
+    cirlcleLayer.position = CGPointMake(kPointDim/2, kPointDim/2);
+    cirlcleLayer.cornerRadius = kPointDim/4.;
+    
+    [pointView.layer addSublayer:cirlcleLayer];
+    
 
     return pointView;
 }

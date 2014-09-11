@@ -12,9 +12,7 @@
 @import QuartzCore;
 
 @interface DrawingView ()
-@property CALayer *pointsLayer;
-@property CALayer *tempLineLayer;
-@property CALayer *edgesLayer;
+@property CALayer *pointsLayer, *tempLineLayer, *edgesLayer;
 
 @property EdgesLayerDelegate *edgesDelegate, *tempEdgeDelegate;
 

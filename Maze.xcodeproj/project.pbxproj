@@ -27,6 +27,7 @@
 		2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33CE8419A1B781007393B8 /* MAPoint.m */; };
 		2B5F737519B5664200037726 /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F737419B5664200037726 /* DrawingView.m */; };
 		2BC77C8319C15F5600F7242A /* MAGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC77C8219C15F5600F7242A /* MAGraph.m */; };
+		2BC77C8719C1633700F7242A /* CKLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC77C8619C1633700F7242A /* CKLinkedList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		2B5F737419B5664200037726 /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 		2BC77C8119C15F5600F7242A /* MAGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGraph.h; sourceTree = "<group>"; };
 		2BC77C8219C15F5600F7242A /* MAGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGraph.m; sourceTree = "<group>"; };
+		2BC77C8519C1633700F7242A /* CKLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLinkedList.h; sourceTree = "<group>"; };
+		2BC77C8619C1633700F7242A /* CKLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLinkedList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 		2BC77C8019C15F3100F7242A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2BC77C8519C1633700F7242A /* CKLinkedList.h */,
+				2BC77C8619C1633700F7242A /* CKLinkedList.m */,
 				2BC77C8119C15F5600F7242A /* MAGraph.h */,
 				2BC77C8219C15F5600F7242A /* MAGraph.m */,
 			);
@@ -298,6 +303,7 @@
 			files = (
 				2B1F765319B592F00079A089 /* EdgesLayerDelegate.m in Sources */,
 				2B33CE8519A1B781007393B8 /* MAPoint.m in Sources */,
+				2BC77C8719C1633700F7242A /* CKLinkedList.m in Sources */,
 				2B33CE6519A1B53E007393B8 /* ViewController.m in Sources */,
 				2B33CE5C19A1B53E007393B8 /* AppDelegate.m in Sources */,
 				2BC77C8319C15F5600F7242A /* MAGraph.m in Sources */,

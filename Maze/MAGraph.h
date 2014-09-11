@@ -12,6 +12,6 @@
 
 @interface MAGraph : NSObject
 
-@property NSSet *nodes;
+@property NSSet *points;
 @property NSSet *edges;
 @end

@@ -9,6 +9,9 @@
 #import "MAPoint.h"
 #import "Headers.h"
 
+@interface MAPoint ()
+@property UIView *cacheView;
+@end
 
 @implementation MAPoint
 
@@ -17,17 +20,21 @@
     if (self) {
         self.center = cgPoint;
         self.color = [MAPoint randomColor];
-
+        self.cacheView = nil;
     }
     return self;
 }
 
 
 - (UIView*)view {
+    if (self.cacheView) {
+        return self.cacheView;
+    }
+    
     UIView *pointView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kPointDim, kPointDim)];
     pointView.layer.cornerRadius = pointView.frame.size.width/2;
     pointView.center = self.center;
-    [pointView setBackgroundColor:[UIColor whiteColor]];
+    [pointView setBackgroundColor:[UIColor clearColor]];
     pointView.layer.cornerRadius = kPointDim/2;
     pointView.layer.borderColor = self.color.CGColor;
     pointView.layer.borderWidth = 1.;
@@ -40,7 +47,7 @@
     
     [pointView.layer addSublayer:cirlcleLayer];
     
-
+    self.cacheView = pointView;
     return pointView;
 }
 

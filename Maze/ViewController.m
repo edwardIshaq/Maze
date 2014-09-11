@@ -113,6 +113,9 @@
 
 
 - (IBAction)clearGraph:(id)sender {
+    for (MAPoint* point in self.points) {
+        [point.view removeFromSuperview];
+    }
     [self.points removeAllObjects];
     [(DrawingView*)self.view clearGraph];
 }
